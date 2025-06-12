@@ -1,6 +1,6 @@
 import 'package:bloc_counter_app/bloc/counter/counter_bloc.dart';
 import 'package:bloc_counter_app/bloc/favorite/favorite_bloc.dart';
-import 'package:bloc_counter_app/bloc/favorite/favorite_event.dart';
+import 'package:bloc_counter_app/bloc/fetchdata/fetchdata_bloc.dart';
 import 'package:bloc_counter_app/bloc/imagepicker/imagepicker_bloc.dart';
 import 'package:bloc_counter_app/bloc/switch/switch_bloc.dart';
 import 'package:bloc_counter_app/bloc/todo/todo_bloc.dart';
@@ -26,11 +26,8 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => SwitchBloc()),
         BlocProvider(create: (context) => ImagePickerBloc(ImagePickerUtils())),
         BlocProvider(create: (context) => TodoBloc()),
-        BlocProvider(
-          create:
-              (context) =>
-                  FavoriteBloc(FavoriteRepository())..add(FetchFavoriteList()),
-        ),
+        BlocProvider(create: (context) => FavoriteBloc(FavoriteRepository())),
+        BlocProvider(create: (context) => FetchDataBloc()),
       ],
       child: BlocProvider(
         create: (context) => SwitchBloc(),

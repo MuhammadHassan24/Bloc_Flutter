@@ -3,6 +3,7 @@ import 'package:bloc_counter_app/bloc/counter/counter_event.dart';
 import 'package:bloc_counter_app/bloc/counter/counter_state.dart';
 import 'package:bloc_counter_app/ui/favorite_page.dart';
 import 'package:bloc_counter_app/ui/image_picker_page.dart';
+import 'package:bloc_counter_app/ui/post_page.dart';
 import 'package:bloc_counter_app/ui/switch_page.dart';
 import 'package:bloc_counter_app/ui/todo_page.dart';
 import 'package:flutter/material.dart';
@@ -84,6 +85,15 @@ class CounterPage extends StatelessWidget {
                   );
                 },
                 child: Text("Favorite App"),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => PostPage()),
+                  );
+                },
+                child: Text("User Post"),
               ),
             ],
           ),
